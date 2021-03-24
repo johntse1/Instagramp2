@@ -51,13 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(TAG,"signup");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-                signupUser(username,password);
+                //signupUser(username,password);
             }
         });
 
     }
 
-    private void signupUser(String username, String password) {
+    /*private void signupUser(String username, String password) {
         Log.i(TAG,"Signing up user"+ username);
         ParseUser user = new ParseUser();
 // Set core properties
@@ -71,16 +71,17 @@ public class LoginActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     // Hooray! Let them use the app now.
-                    goMainActivity();
+                    loginUser(username,password);
                 } else {
                     // Sign up didn't succeed. Look at the ParseException
                     // to figure out what went wrong
                     Toast.makeText(LoginActivity.this,"Error",Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
         });
     }
-
+*/
     private void loginUser(String username, String password) {
         Log.i(TAG,"Attempting to log in user:" + username);
         ParseUser.logInInBackground(username, password, new LogInCallback() {
